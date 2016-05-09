@@ -1,13 +1,13 @@
 {
-  "name" : "Selected Layers",
-  "description" : "Example plugin which handles the SelectedChanged action.",
+  "name" : "SelectionChanged Example",
+  "description" : "Example plugin which handles the SelectionChanged action.",
   "version" : "1.0",
-  "identifier" : "com.bohemiancoding.sketch.actions.selected-layers",
+  "identifier" : "com.bohemiancoding.examples.selection-changed",
   "author" : "Sam Deane",
   "authorEmail" : "sam@bohemiancoding.com",
   "commands" : [
     {
-      "script" : "script.js",
+      "script" : "selection-changed.js",
       "handlers" : {
         "actions" : {
            "SelectionChanged.finish" : "onSelectionChanged",

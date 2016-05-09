@@ -1,6 +1,8 @@
 // This example plugin illustrates how to listen for the SelectionChanged action, and to
 // do something whenever the user changes the selection.
 //
+// ## Layout
+//
 // The first thing to do when making a plugin is to setup the folder structure, which should
 // look something like this:
 //
@@ -13,6 +15,16 @@
 // ```
 //
 // ## Manifest
+//
+// The plugin needs a manifest.json file. This tells Sketch which commands your plugin supplies,
+// as well as giving some general information about the plugin such as its name, author, and so on.
+//
+// For each command, the manifest lists the menu entry we want (if any), and the actions that it
+// listens for. In our case, we don't want to add a menu item, but we do want to list for
+// one action: `SelectionChanged`.
+//
+//  ```
+// {
 //   "name" : "SelectionChanged Example",
 //   "description" : "Example plugin which illustrates how to handle the SelectionChanged action.",
 //   "version" : "1.0",
@@ -34,7 +46,26 @@
 //     ],
 //   },
 // }
+// ```
+
+// ## Code
+//
+// In the manifest, we told Sketch that every time the SelectionChanged action finishes, we want it
+// to run the onSelectionChanged handler in our selection-changed.js script file.
+//
+// So we need to define that handler, and put some code in it to do something...
 
 var onSelectionChanged = function(context) {
-  log("Selection changed to: " + context['actionContext']['newSelection']);
+
+    // Whenever sketch calls a handler in one of our plugins, it passes in a single context argument.
+    // This dictionary is our connection with Sketch itself, and contains all the information that
+    // we need to work out which document was open, perform whatever task we want to on it, and so on.
+    //
+    // When we're being called in response to an action occurring, the context will contain
+    // an actionContext property with additional information about the action, so that's the first
+    // thing that we want to retrieve:
+
+    action = context.actionContext;
+
+    log("Selection changed to: " + context['actionContext']['newSelection']);
 };

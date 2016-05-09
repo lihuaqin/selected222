@@ -49,14 +49,17 @@
 // ```
 
 // ## Code
+// ### Defining The Action Handler
 //
-// In the manifest, we told Sketch that every time the SelectionChanged action finishes, we want it
-// to run the onSelectionChanged handler in our selection-changed.js script file.
+// In the manifest, we told Sketch that every time the `SelectionChanged` action finishes, we want it
+// to run the onSelectionChanged handler in our `selection-changed.js` script file.
 //
-// So we need to define that handler, and put some code in it to do something...
+// So now we need to put some code into the `selection-changed.js` file to define that handler and make it do something useful.
+
 
 var onSelectionChanged = function(context) {
 
+    // ### Extracting Context Information
     // Whenever sketch calls a handler in one of our plugins, it passes in a single context argument.
     // This dictionary is our connection with Sketch itself, and contains all the information that
     // we need to work out which document was open, perform whatever task we want to on it, and so on.
@@ -76,6 +79,7 @@ var onSelectionChanged = function(context) {
     document = action.document;
     selection = action.newSelection;
 
+    // ### Performing Our Code
     // Now for the meat of the plugin. What we want it to do is to show a small message at the bottom
     // of the canvas, showing how many items the user has selected. If there are no items, the message
     // area should be hidden.
@@ -84,20 +88,24 @@ var onSelectionChanged = function(context) {
     count = selection.count();
     if (count == 0) {
 
-        // Nothing is selected, so hide any previous message.
+        // If nothing is selected, we just want to hide any previous message that might have been shown.
         document.hideMessage();
 
     } else {
 
-        // One or more items are selected. We check for a single item so that we
-        // can get the wording correct.
+        // If one or more items are selected, we want to show a message.
+        // We check for a single item and handle that as a special case so that we can get the wording correct.
 
         if (count == 1) {
+            // For a single item, we don't want an "s" on the end.
             message = "1 layer selected."
         } else {
+            // For multiple items we want to show the count, and use an "s" for a plural.
             message = count + " layers selected."
         }
 
+        // Finally, show the actual message to the user.
+        //
         // This is intended to be a simple example, so we're going to make use of an existing
         // facility that is really intended for flashing up temporary messages for the user.
         //

@@ -66,6 +66,20 @@ var onSelectionChanged = function(context) {
     // thing that we want to retrieve:
 
     action = context.actionContext;
+    document = action.document;
+    selection = action.newSelection;
 
-    log("Selection changed to: " + context['actionContext']['newSelection']);
+    count = selection.count();
+    if (count == 0) {
+        document.hideMessage();
+        message = ""
+    } else {
+        if (count == 1) {
+            message = "1 layer selected."
+        } else {
+            message = count + " layers selected."
+        }
+        document.showMessage(message);
+    } 
+
 };

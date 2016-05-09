@@ -1,2 +1,1 @@
-# plugins.actions.selected
-Example plugin which responds to the SelectionChanged action
+This is an example Sketch plugin which demonstrates how to register for and respond to the SelectionChanged action.

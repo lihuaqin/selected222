@@ -66,20 +66,45 @@ var onSelectionChanged = function(context) {
     // thing that we want to retrieve:
 
     action = context.actionContext;
+
+    // The context information for each action will be different. For the SelectionChanged action,
+    // we are passed three interesting values: which document the selection has changed in,
+    // what the old selection was, what the new selection is (or will be).
+
+    // For our purposes, we can ignore the old selection, but we need the other two values.
+
     document = action.document;
     selection = action.newSelection;
 
+    // Now for the meat of the plugin. What we want it to do is to show a small message at the bottom
+    // of the canvas, showing how many items the user has selected. If there are no items, the message
+    // area should be hidden.
+
+    // So first let's get the selection count.
     count = selection.count();
     if (count == 0) {
+
+        // Nothing is selected, so hide any previous message.
         document.hideMessage();
-        message = ""
+
     } else {
+
+        // One or more items are selected. We check for a single item so that we
+        // can get the wording correct.
+
         if (count == 1) {
             message = "1 layer selected."
         } else {
             message = count + " layers selected."
         }
+
+        // This is intended to be a simple example, so we're going to make use of an existing
+        // facility that is really intended for flashing up temporary messages for the user.
+        //
+        // (arguably there would be better ways of displaying the information, but that would result
+        //  in a much more complicated example -- so let's worry about one thing at a time!)
+
         document.showMessage(message);
-    } 
+    }
 
 };

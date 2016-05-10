@@ -2,9 +2,9 @@
   "name" : "SelectionChanged Example",
   "description" : "Example plugin which handles the SelectionChanged action.",
   "version" : "1.0",
-  "identifier" : "com.bohemiancoding.examples.selection-changed",
+  "identifier" : "com.sketchapp.examples.selection-changed",
   "author" : "Sam Deane",
-  "authorEmail" : "sam@bohemiancoding.com",
+  "authorEmail" : "sam@sketchapp.com",
   "commands" : [
     {
       "script" : "selection-changed.js",
@@ -15,8 +15,4 @@
           },
     }
   ],
-  "menu" : {
-    "items" : [
-    ],
-  },
 }

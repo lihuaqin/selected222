@@ -1,5 +1,10 @@
+// SelectionChanged, by Sam Deane — Source code available at [GitHub](https://github.com/BohemianCoding/plugins.examples.selection-changed)
+//
 // This example plugin illustrates how to listen for the SelectionChanged action, and to
 // do something whenever the user changes the selection.
+//
+// It uses the new Action API in Sketch 3.8.
+
 //
 // ## Layout
 //
@@ -106,11 +111,11 @@ var onSelectionChanged = function(context) {
 
         // Finally, show the actual message to the user.
         //
-        // This is intended to be a simple example, so we're going to make use of an existing
-        // facility that is really intended for flashing up temporary messages for the user.
+        // This is intended to be a simple example, so we're making use of an existing
+        // facility (`showMessage`) that is really intended for flashing up temporary messages for the user.
         //
-        // (arguably there would be better ways of displaying the information, but that would result
-        //  in a much more complicated example -- so let's worry about one thing at a time!)
+        // Arguably there would be better ways of displaying the information, but that would result
+        // in a much more complicated example -- so let's worry about one thing at a time!
 
         document.showMessage(message);
     }

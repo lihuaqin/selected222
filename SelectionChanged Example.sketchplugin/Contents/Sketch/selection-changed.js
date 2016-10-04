@@ -1,9 +1,7 @@
-// SelectionChanged, by Sam Deane — Source code available at [GitHub](https://github.com/BohemianCoding/plugins.examples.selection-changed)
+// Selection Changed, by Sam Deane — Source code available at [GitHub](https://github.com/BohemianCoding/plugins.examples.selection-changed)
 //
 // This example plugin illustrates how to listen for the SelectionChanged action, and to
 // do something whenever the user changes the selection.
-//
-// It uses the new Action API in Sketch 3.8.
 
 //
 // ## Layout
